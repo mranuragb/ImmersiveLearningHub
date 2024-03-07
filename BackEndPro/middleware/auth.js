@@ -1,4 +1,6 @@
 const jwt = require("jsonwebtoken");
+import { ApiError } from "../utils/ApiError";
+import { ApiResponse } from "../utils/ApiResponse";
 require("dotenv").config();
 const User = require("../models/User");
 
@@ -24,10 +26,10 @@ exports.auth = async(req,res,next)=>{
             console.log(decode);
             req.user = decode;
         }catch(err){
-            return res.status(401).json({
-                success:false,
-                message:'Token is Invalid',
-            })
+            return res.status(401).json(
+                
+                new ApiResponse(401,"Token is Invalid")
+            )
         }
         next();
     }

@@ -1,4 +1,5 @@
 const nodemailer = require("nodemailer");
+const { ApiError } = require("./ApiError");
 
 const mailsender = async(email,title,body)=>{
     try{
@@ -21,6 +22,7 @@ const mailsender = async(email,title,body)=>{
 
     }catch(error){
         console.log(error.message);
+        throw new ApiError(500,"Error Occured In MailSender",error);
 
     }
 }

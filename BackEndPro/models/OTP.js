@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const mailsender = require("../utils/mailSender");
+const { ApiError } = require("../utils/ApiError");
 
 const OTPSchema = new mongoose.Schema({
     email:{
@@ -26,7 +27,7 @@ async function sendVerificationEmail(email,opt){
     }
     catch(error){
         console.log("Error occured while sending mail",error);
-        throw error;
+        throw new ApiError(500,"Error Occured In Send Verification Email",error);
     }
 }
 
