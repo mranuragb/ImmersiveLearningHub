@@ -1,11 +1,11 @@
-const Course = require("../models/Course")
-const Category = require("../models/Category")
-const Section = require("../models/Section")
-const SubSection = require("../models/SubSection")
+const Course = require("../models/Course.js");
+const Category = require("../models/Category.js")
+const Section = require("../models/Section.js")
+const SubSection = require("../models/SubSection.js")
 const User = require("../models/User")
-const { uploadImageToCloudinary } = require("../utils/imagesUploader")
-const CourseProgress = require("../models/CourseProgress")
-const { convertSecondsToDuration } = require("../utils/secToDuration")
+const { uploadImageToCloudinary } = require("../utils/imagesUploader.js")
+const CourseProgress = require("../models/CourseProgress.js")
+const { convertSecondsToDuration } = require("../utils/secToDuration.js")
 // Function to create a new course
 exports.createCourse = async (req, res) => {
   try {
